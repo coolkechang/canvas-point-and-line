@@ -5,11 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas画板</title>
+    <title>画板</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    hi
+    <div id="canvas"></div>
+    <script>
+        canvas.onclick = (e) => {
+            console.log(e.clientX)
+            console.log(e.clientY)
+            //console.log调试大法 
+            //(在这里通过console.log找到了鼠标点击时指针的点)
+            let div = document.createElement('div')//让文档创建一个标签/元素（document：文档||createElement：创建元素/标签）
+            div.style.position = 'absolute'
+            div.style.left = e.clientX + 'px'
+            div.style.top = e.clientY + 'px'
+            //div.style.border = '1px solid red'
+            div.style.width = '6px'
+            div.style.height = '6px'
+            div.style.marginLeft = '-3px'
+            div.style.marginTop = '-3px'
+            div.style.borderRadius = '50%'//鼠标点击显示的方形点变成圆形点
+            div.style.backgroundColor = 'black'
+            canvas.appendChild(div)//在这里文档创建一个div，它会出现在内存里，不会显示在页面上。增加了这句“让canvas添加了孩子（div）”就会让div出现在canvas里面
+
+
+        }
+    </script>
 </body>
 
 </html>
